@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="custom-cursor"></div>
+  <div id="stars"></div>
+  <div id="hearts-container"></div>
+  <audio id="bg-music" src="musik.mp3" loop></audio>
+
+  <!-- Password Layer -->
+  <section class="layer" id="layer-password">
+    <div class="card">
+      <h2>Hai Sayang 💖</h2>
+      <p>Masukkan tanggal lahirmu yuk!</p>
+      <input type="text" id="password" placeholder="ddmmyyyy">
+      <button onclick="checkPassword()">Masuk</button>
+      <p id="error-message" style="color: red; display: none;">Password salah, coba lagi ya sayang 🥺</p>
+    </div>
+  </section>
+
+
+  <!-- Opening Layer -->
+  <section class="layer hidden" id="layer-opening">
+    <div class="card">
+      <h1>Selamat Ulang Tahun 🎂</h1>
+      <p>Ini hadiah kecil dari aku buat kamu 💌</p>
+      <button onclick="nextLayer('layer-opening', 'layer-memory')">Lanjut Yuk</button>
+    </div>
+  </section>
+
+<!-- Our Memory Timeline -->
+<section class="layer hidden scrollable" id="layer-memory">
+  <h2>Our Memory 📸</h2>
+
+  <div class="timeline">
+    <div class="timeline-item left">
+      <div class="content">
+        <img src="img/timeline/1.jpg" alt="Memory 1">
+        <p>🥺💓 Ini moment pertama kali kita ketemuuuu biik!! Pas bukber... aku inget bangeeet, deg-degan tapi excitedtt, kamu lucu bangeeet huhuhu 😭💕</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <img src="img/timeline/2.jpg" alt="Memory 2">
+        <p>🌊☀️ Lanjoooot pertemuan keduauuu!! Kita ke pantaaaii, angin sepoi², kamu ketawa, kita ngobrol banyaaak... awal mula hati aku mulai klik sama kamu 😳❤️</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <img src="img/timeline/3.jpg" alt="Memory 3">
+        <p>🎧📞 Kita LDR-an pertamaa kaliii dan vc-an lewat Discord... omg aku deg-degan kek kek kita udah sedekeeet iniii biiik 😭😭💘</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <img src="img/timeline/4.jpg" alt="Memory 4">
+        <p>😤😅 Moment ngambek pertama kamuuuuu... kamu ngeselin tapi lucuuuu, ak gemes bangeettt, akhirnya ak baikin pake cara ak sendiri 🥹❤️</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <img src="img/timeline/5.jpg" alt="Memory 5">
+        <p>🍼🏡 Ini tuh yaaaa lucu BUANGEEETTTT!! Kayak bayangin kita nanti udah nikahhh, hidup bareng, punya rumah kecil dan bahagia, hiiiiii 😭💍✨</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <img src="img/timeline/6.jpg" alt="Memory 6">
+        <p>🖼️💕 Pertama kalinya kita ke pameraaaan! Date yang bener-bener estetik, ak terharuuuuu dan seeeneeeng bangeet waktu itu 😭🫶</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <img src="img/timeline/7.jpg" alt="Memory 7">
+        <p>🎨🚲 Ini mau perpisahaaaan huhuhu kamu mau ke jogjaaa... kita jalan-jalan dulu, ke jus kode, ngelukis bareng di stadion... momen penuh warnaaaa 💔🖌️</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <img src="img/timeline/8.jpg" alt="Memory 8">
+        <p>📚✨ Sebelum kamu pergi... kita ke perpustakaan dateee, ak sukaa banget vibe-nya, tenang, damai... sama kayak hatiku pas bareng kamu 🥰🤓</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <img src="img/timeline/9.jpg" alt="Memory 9">
+        <p>🌴⛵ Date pantai pertamaku sama kamu... ke Pulaaau Meraakkk!!! Kamu inget gak? Kita duduk bareng, liat laut, dan ak cuma bisa mikir... i love you 🥹💞</p>
+      </div>
+    </div>
+    <div class="timeline-item right">
+      <div class="content">
+        <img src="img/timeline/10.jpg" alt="Memory 10">
+        <p>🎓📸 MOMENT KAMUUU DATANG KE SEMPRO AKK 😭😭 Aku terharuuu bangeeeet, kamu dateng, support aku, nenangin ak, and i felt so safeeee 🥺❤️</p>
+      </div>
+    </div>
+    <div class="timeline-item left">
+      <div class="content">
+        <img src="img/timeline/11.jpeg" alt="Memory 11">
+        <p>🎉📚 DAN KAMU LULUUUUS SIDANGGGG!!! Ak seneeeng bangeeet biikkkk, bangga bangettt sama kamu, kamu keren, kamu kuat, kamu hebatttt!!! 😭😭😭💐❤️‍🔥</p>
+      </div>
+    </div>
+  </div>
+
+  <button onclick="nextLayer('layer-memory', 'layer-music')">Next 🎶</button>
+</section>
+
+
+
+<!-- Music For You Layer -->
+<section class="layer hidden" id="layer-music">
+  <div class="card">
+    <h2>Music For You 🎧</h2>
+
+    <div style="max-height: 400px; overflow-y: auto; margin: 20px 0; display: flex; flex-direction: column; gap: 20px; padding-right: 10px;">
+      <!-- Song 1 -->
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/2rwJP8OEao5y3xexw52HfD?utm_source=generator&theme=0"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+      <!-- Song 2 -->
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/61DuXKQqvXkxcrAIiNLIgR?utm_source=generator"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+      <!-- Song 3 -->
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/5BgZ1bi8xeWVxmg12RfWzv?utm_source=generator&theme=0"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+      <!-- Song 4 -->
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/1w3azB0VuRFp79AduIwrIy?utm_source=generator&theme=0"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+      <!-- Song 5 -->
+      <iframe
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/1UPB5rYJ0bzn6mNSoAHrZC?utm_source=generator"
+        width="100%"
+        height="152"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <button onclick="nextLayer('layer-music', 'layer-balloons')">Next 💥</button>
+  </div>
+</section>
+
+
+<!-- BALLOON LAYER -->
+<section class="layer hidden" id="layer-balloons">
+  <h2>Pecahkan balonnya satu-satu ya sayangg 🎈</h2>
+  <div class="balloon-container" id="balloon-container"></div>
+</section>
+
+
+  <!-- The Beautiful You Are Layer -->
+  <section class="layer hidden scrollable" id="layer-beautiful">
+      <h2>How Beautiful You Are 💗</h2>
+      <p class="support-text">Every little thing about you makes me smile 😊</p>
+      <!-- Gambar langsung di dalam card tetapi dengan scroll horizontal -->
+      <div class="scroll-wrapper">
+      <div class="image-container">
+        <img src="img/beautiful/1.jpg" alt="Image 1" class="scrollable-image">
+        <img src="img/beautiful/2.jpg" alt="Image 2" class="scrollable-image">
+        <img src="img/beautiful/3.jpg" alt="Image 3" class="scrollable-image">
+        <img src="img/beautiful/4.jpg" alt="Image 4" class="scrollable-image">
+        <img src="img/beautiful/5.jpg" alt="Image 5" class="scrollable-image">
+        <img src="img/beautiful/6.jpg" alt="Image 6" class="scrollable-image">
+        <img src="img/beautiful/7.jpg" alt="Image 7" class="scrollable-image">
+        <img src="img/beautiful/8.jpg" alt="Image 8" class="scrollable-image">
+        <img src="img/beautiful/9.jpg" alt="Image 9" class="scrollable-image">
+        <img src="img/beautiful/10.jpg" alt="Image 10" class="scrollable-image">
+        <img src="img/beautiful/11.jpg" alt="Image 11" class="scrollable-image">
+        <img src="img/beautiful/12.jpg" alt="Image 12" class="scrollable-image">
+        <img src="img/beautiful/13.jpg" alt="Image 13" class="scrollable-image">
+        <img src="img/beautiful/14.jpg" alt="Image 14" class="scrollable-image">
+        <img src="img/beautiful/15.jpg" alt="Image 15" class="scrollable-image">
+        <img src="img/beautiful/16.jpg" alt="Image 16" class="scrollable-image">
+        <img src="img/beautiful/17.jpg" alt="Image 17" class="scrollable-image">
+        <img src="img/beautiful/18.jpg" alt="Image 18" class="scrollable-image">
+        <img src="img/beautiful/19.jpg" alt="Image 19" class="scrollable-image">
+        <img src="img/beautiful/20.jpg" alt="Image 20" class="scrollable-image">
+        <img src="img/beautiful/21.jpg" alt="Image 21" class="scrollable-image">
+        <img src="img/beautiful/22.jpg" alt="Image 22" class="scrollable-image">
+        <img src="img/beautiful/23.jpg" alt="Image 23" class="scrollable-image">
+        <img src="img/beautiful/24.jpg" alt="Image 24" class="scrollable-image">
+        <img src="img/beautiful/25.jpg" alt="Image 25" class="scrollable-image">
+        <img src="img/beautiful/26.jpg" alt="Image 26" class="scrollable-image">
+        <img src="img/beautiful/27.jpg" alt="Image 27" class="scrollable-image">
+        <img src="img/beautiful/28.jpg" alt="Image 28" class="scrollable-image">
+      </div>
+      <button onclick="nextLayer('layer-beautiful', 'layer-tts')">Teka-teki Silang 💭</button>
+  </section>
+
+
+<!-- Crossword Layer -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Crossword Layer (Layer TTS) -->
+<section class="layer hidden scrollable" id="layer-tts">
+  <h2>Teka Teki Sayang 💞</h2>
+  <p class="support-text">Isi kotak-kotaknya pake kenangan dan kebiasaan kita yuuuk 😚</p>
+
+  <div class="wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- 🟣 KOLOM KIRI UNTUK PERTANYAAN -->
+        <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+          <h5><u>Pertanyaan Mendatar</u></h5>
+          <div id="mendatar" class="mb-4">
+            <ol>
+              <li>Tempat makan yang paling legend</li>
+              <li>Tanggal spesial tiap bulan yang selalu ditunggu</li>
+              <li>Ekspresi khas saat ngambek, antara manja dan ngeselin</li>
+              <li>Ucapan sayang sebelum tidur</li>
+              <li>Julukan sayang yang absurd tapi bikin kangen</li>
+            </ol>
+          </div>
+
+          <h5><u>Pertanyaan Menurun</u></h5>
+          <div id="menurun">
+            <ol>
+              <li>Hewan peliharaan imajiner favorit kalian</li>
+              <li>Reaksi kalau lupa ngabarin: “eh… itu…”</li>
+              <li>Warna favorit pasangan, khas banget</li>
+            </ol>
+          </div>
+
+          <hr>
+          <button class="btn btn-primary" id="btn_cek">Cek Jawaban</button>
+        </div>
+
+        <!-- 🟡 KOLOM KANAN UNTUK TTS -->
+        <div class="col-lg-8 col-md-8 col-sm-12">
+          <div class="grid-container">
+            <div class="grid"></div>
+          </div>
+          <div id="skor" class="mt-3"><b>Skor:</b> <span id="nilaiSkor">0</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn btn-success mt-2" onclick="nextLayer('layer-tts', 'layer-ending')">Lanjut 💌</button>
+</section>
+
+
+
+
+
+<!-- === Ending Page with Amplop and Letter === -->
+<section class="layer hidden" id="layer-ending">
+    <div class="card">
+      <div class="envelope" onclick="openLetter()">
+        <div class="flap"></div>
+        <div class="letter" id="letter">
+          <p>Dear My Love,</p>
+          <p>
+            Happy birthday yaaa sayangkuu yang ke-22 🎂✨  
+            Wawww udah 22 tahun sekarang... rasanya baru kemarin kita ngelewatin semua hal bareng-bareng, dari yang kecil kayak ketawa bareng karena hal receh... sampai yang bikin kita nangis dan saling peluk karena hidup kadang nggak adil. Tapi kita selalu balik lagi. Bareng lagi. Kuat lagi. 🥹❤️
+          </p>
+          <p>
+            22 tahun bukan angka kecil, dan kamu udah hebat banget sampai di titik ini. Apalagi sekarang... kamu udah lulus!! 🎓✨ AAAAAAAAAA 😭  
+            Ak tuh banggaaaaa banget sumpah... inget perjuangan kamu, begadang, nahan stres, semua rasa capek dan lelah yang nggak pernah kamu tunjukin ke orang-orang... sekarang semuanya kebayar.
+          </p>
+          <p>
+            Dan sebentar lagi... tanggal 26 April... kamu bakal wisuda 🎉  
+            Hari yang ditunggu-tunggu. Hari yang jadi penanda: bahwa semua kerja keras kamu berarti. Dan kamu pantes dapet pelukan, tepuk tangan, dan cinta sebanyak-banyaknya hari itu 💐
+          </p>
+          <p>
+            Aku cuma mau bilang: makasih yaa udah bertahan sejauh ini. Makasih udah jadi versi terbaik dari kamu. Dan makasih juga... karena masih ada di sini, bersamaku.  
+            Aku doain semogaaa rejekimu lancar, segera dapet kerja yang bikin kamu bahagia, lingkungan yang suportif, dan... tentunya... gaji yang cukup buat jajanin aku 🤭✨  
+            *Yaaa kan motivasi hidup harus seimbang antara idealisme dan boba~* 🧋
+          </p>
+          <p>
+            Pokoknya... teruslah jadi kamu yang luar biasa. Dan kalau capek... pulang yaa... ke aku. ❤️  
+            Aku di sini. Selalu.
+          </p>
+          <p>
+            With all my love,  
+            From Yours Truly 💌
+          </p>
+        </div>
+        
+      </div>
+      <!-- Hati-hati melayang -->
+<div class="hearts">
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</div>
+    </div>
+    <div class="barcode-button-wrapper">
+      <button class="to-barcode-button" onclick="showLayer('layer-barcode')">
+        Aku masih punya sesuatu buat kamu... 🎁💌
+      </button>
+    </div>
+  </section>
+  
+  <!-- Layer Barcode -->
+<div id="layer-barcode" style="display: none;" class="layer-barcode">
+  <h2 class="barcode-title">Scan ini yaaa... 💘</h2>
+  <img src="img/barcode.svg" alt="barcode cinta" class="barcode-image">
+  <p class="barcode-caption">
+    ...buat lanjut ke sesuatu yang rahasia dan spesial banget 🤫💕
+  </p>
+</div>
+
+
+  <script src="script.js"></script>
+  <script src="question_lists.js"></script>
+<script src="script-tts.js"></script>
+</body>
+</html>

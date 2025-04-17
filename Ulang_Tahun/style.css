@@ -1,0 +1,836 @@
+  /* Global Styling */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  
+
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdf7f2;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, p {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: #ff8a80;
+    color: white;
+    font-size: 16px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ff5252;
+  }
+
+  /* Hidden Layer */
+  .hidden {
+    display: none !important;
+  }
+
+  /* Layer Structure */
+  .layer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+  }
+
+  /* Custom Cursor */
+  #custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff4081;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease-in-out;
+  }
+
+  /* Background Stars */
+  #stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/white-linen.jpg') repeat;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Hearts Floating Effect */
+  #hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('img/heart.png'); /* Replace with your heart image */
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-200px);
+      opacity: 0;
+    }
+  }
+
+  #layer-memory {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+    overflow-y: auto;
+  }
+  #layer-memory h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: #ff8a80;
+    position: relative;
+    z-index: 2;
+  }
+
+ /* Timeline Zig-Zag */
+ .timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #ff8a80;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  padding: 20px 30px;
+  position: relative;
+  width: 50%;
+}
+
+.timeline-item .content {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.timeline-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.timeline-item p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Zig-Zag Left */
+.timeline-item.left {
+  left: 0;
+}
+
+/* Zig-Zag Right */
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item.left .content::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #fff;
+}
+
+.timeline-item.right .content::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+
+/* Responsive buat HP */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 25px;
+  }
+
+  .timeline-item.right {
+    left: 0%;
+  }
+
+  .timeline-item.left .content::before,
+  .timeline-item.right .content::before {
+    display: none;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 8px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 0;
+  }
+
+  .timeline-item.right {
+    left: 0%;
+  }
+
+  .timeline-item.left .content::before,
+  .timeline-item.right .content::before {
+    left: 10px;
+    border: none;
+  }
+}
+  
+
+  /* Music Player */
+  .music-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .album-cover {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+  }
+
+  .music-box button {
+    font-size: 18px;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: #ff4081;
+    color: white;
+  }
+
+  .music-box button:hover {
+    background-color: #ff5252;
+  }
+
+  .yay-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff4081;
+    text-align: center;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    display: none;
+    animation: popIn 0.6s ease-out forwards;
+  }
+  
+  /* Optional animation */
+  @keyframes popIn {
+    from {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Styling untuk "How Beautiful You Are" dan teks pendukung */
+#layer-beautiful {
+  display: block;
+  height: auto;
+  min-height: 100vh;
+  padding: 60px 20px 40px;
+  overflow-y: auto;
+}
+
+  #layer-beautiful h2 {
+  font-family: 'Lobster', cursive; /* Fancy font */
+  font-weight: bold;
+  font-size: 3em;
+  color: #ff8a80;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center; /* Supaya tulisan di tengah */
+  z-index: 2;
+  position: relative;
+}
+
+
+
+#layer-beautiful .support-text {
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center; /* Supaya tulisan di tengah */
+}
+
+/* Menghilangkan card wrapper, langsung teks dan gambar */
+#layer-beautiful {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Kontainer gambar dengan scroll horizontal */
+.scroll-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+.image-container {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.scrollable-image {
+  height: 220px;
+  width: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Tombol "Next" */
+button {
+  background-color: #ff8a80;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #ff5252;
+}
+  /* Scrollable Content */
+  .scrollable {
+    overflow-y: scroll;
+    padding: 20px;
+    max-height: 80vh;
+  }
+
+  .envelope {
+    width: 200px;
+    height: 150px;
+    background: #ff8a80;
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    animation: wiggle 2s infinite ease-in-out;
+  }
+  
+  /* Efek goyang lucu pas idle */
+  @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(1.5deg); }
+    50% { transform: rotate(-1.5deg); }
+    75% { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ff5252;
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    border-bottom: 2px solid #ff8a80;
+  }
+  
+  .envelope .letter {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    height: auto;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(0);
+    transition: transform 0.6s ease;
+    font-size: 14px;
+    color: #333;
+    z-index: 1;
+    overflow-y: auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Scrollbar cantik */
+  .envelope .letter::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .envelope .letter::-webkit-scrollbar-thumb {
+    background-color: #ff8a80;
+    border-radius: 3px;
+  }
+  
+  /* Efek buka amplop */
+  .envelope.open {
+    height: 300px; /* amplop ikut membesar */
+    animation: none; /* stop wiggle saat dibuka */
+  }
+  
+  .envelope.open .flap {
+    transform: rotateX(-180deg);
+  }
+  
+  .envelope.open .letter {
+    transform: translateY(-100%);
+  }
+  
+  /* Container untuk animasi hati */
+.hearts {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Bentuk dan animasi hati */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  transform: rotate(45deg);
+  animation: floatHeart 3s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: -10px;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Posisi dan delay acak */
+.heart:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+}
+.heart:nth-child(2) {
+  left: 50%;
+  animation-delay: 0.5s;
+}
+.heart:nth-child(3) {
+  left: 70%;
+  animation-delay: 1s;
+}
+
+  
+  
+ /* Container balon */
+#balloon-container {
+  position: relative; /* Pastikan container memiliki posisi relatif */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  min-height: 60vh;
+  z-index: 2;
+  margin: 0 auto;
+  width: 80vw; /* Tentukan lebar container */
+  height: 60vh; /* Tentukan tinggi container */
+  overflow: hidden; /* Menyembunyikan elemen yang keluar dari container */
+}
+
+/* Balon */
+.balloon {
+  width: 100px; /* Ukuran balon */
+  height: 150px; /* Ukuran balon */
+  background-image: url('img/balloon.svg'); /* Gambar balon */
+  background-size: cover; /* Menyesuaikan ukuran gambar */
+  background-position: center; /* Gambar rata tengah */
+  border-radius: 50%; /* Membuat bentuk balon bulat */
+  position: absolute; /* Agar balon bisa bergerak */
+  cursor: pointer; /* Agar bisa di-klik */
+  transition: transform 0.3s ease; /* Animasi saat balon meletus */
+}
+
+/* Efek meletus balon */
+.balloon.popped {
+  transform: scale(0); /* Efek meletus (memperkecil) */
+}
+
+/* Animasi gerak balon */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Font Montserrat untuk layer balon */
+#balloon-layer, .number-display, .yay-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;  /* Menggunakan varian bold */
+}
+
+/* Gaya untuk angka yang muncul setelah balon pecah */
+.number-display {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: #ff69b4;
+  animation: fadeInOut 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: scale(0.8) translate(-50%, -50%); }
+  50% { opacity: 1; transform: scale(1.2) translate(-50%, -50%); }
+  100% { opacity: 0; transform: scale(0.8) translate(-50%, -50%); }
+}
+
+
+
+/* Gaya untuk teks "YEEAAAY" */
+.yay-text {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 5rem; /* Ukuran sangat besar untuk "YEEAAAY" */
+  color: #ff8a80;  /* Warna oranye merah yang terang */
+  font-weight: bold;
+  z-index: 10;
+  display: none;  /* Awalnya tersembunyi */
+}
+
+
+
+/* Gaya untuk kontainer TTS */
+#layer-tts .wrapper {
+  display: flex;
+  justify-content: center; /* Menjaga konten tetap di tengah */
+  width: 100%;
+}
+
+#layer-tts .container-fluid {
+  width: 100%;
+  max-width: 1200px; /* Membatasi lebar maksimum kontainer */
+  padding: 0 15px; /* Memberi ruang di kanan dan kiri */
+}
+
+#layer-tts .row {
+  display: flex;
+  justify-content: center; /* Menjaga konten tetap terpusat */
+  flex-wrap: wrap;
+  gap: 15px; /* Memberi jarak antar kolom */
+  width: 100%;
+}
+
+/* Kolom untuk Pertanyaan di sisi kiri */
+#layer-tts .col-lg-3 {
+  flex: 1 1 30%; /* Kolom kiri mengisi 30% dari lebar layar */
+  min-width: 250px; /* Ukuran minimal kolom kiri */
+  padding-right: 20px; /* Memberi ruang pada kolom kiri */
+}
+
+/* Kolom untuk Grid TTS di sisi kanan */
+#layer-tts .col-lg-9 {
+  flex: 1 1 65%; /* Kolom kanan mengisi 65% dari lebar layar */
+  min-width: 300px; /* Ukuran minimal kolom kanan */
+  padding-left: 20px; /* Memberi ruang pada kolom kanan */
+}
+
+/* Kolom sedang dan kecil */
+#layer-tts .col-md-4 {
+  flex: 1 1 40%; /* Kolom tengah mengisi 40% */
+}
+
+#layer-tts .col-sm-12 {
+  flex: 1 1 100%; /* Kolom kecil mengisi 100% */
+}
+#layer-tts .col-lg-4 {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* Gaya untuk daftar pertanyaan */
+#layer-tts .col-lg-4 ol {
+  padding-left: 20px;
+}
+
+#layer-tts .col-lg-4 li {
+  margin-bottom: 10px;
+}
+/* Menjaga grid tetap responsif */
+.grid-container {
+  margin-top: 30px;
+}
+
+/* Grid Kotak - Menjadi Kotak Simetris */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(15, 30px);
+  grid-template-rows: repeat(15, 30px);
+  gap: 0;
+  margin: 0 auto;
+  padding: 0;
+}
+#layer-tts {
+  min-height: 100vh; /* Pastikan setinggi viewport */
+  overflow-y: auto;   /* Scroll kalo kontennya panjang */
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+/* Style untuk div dalam grid */
+.grid div {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 28px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  position: relative;
+  border-radius: 5px; /* Membuat kotak lebih halus */
+}
+
+.grid__item {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid__item input.for-tts {
+  background-color: transparent !important; /* transparan biar warna kotak parent keliatan */
+  border: none;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Buat grid kosong yang ga perlu diisi jadi transparan */
+.grid__item.empty {
+  border: none;
+  background: transparent;
+}
+
+/* Warna untuk jawaban yang benar */
+.grid__item.correct {
+  background-color: #4CAF50 !important;
+}
+
+/* Warna untuk jawaban yang salah */
+.grid__item.incorrect {
+  background-color: #f44336 !important;
+}
+
+
+/* Styling untuk kolom kiri (pertanyaan) */
+#layer-tts .col-lg-3 {
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+/* Styling untuk pertanyaan */
+.question {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Memberikan jarak antar pertanyaan */
+  color: #333; /* Menambahkan warna */
+}
+
+/* Gaya untuk skor */
+#skor {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Styling untuk button */
+/* Button Cek Jawaban */
+button {
+  margin-top: 20px;
+}
+/* Style untuk teks pertanyaan dan grid */
+#layer-tts h5, #layer-tts ol {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+/* Hover effect untuk button */
+button:hover {
+  background-color: #0056b3;
+}
+
+.barcode-button-wrapper {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.to-barcode-button {
+  padding: 14px 30px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(255, 20, 147, 0.5);
+  transition: all 0.3s ease;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.to-barcode-button:hover {
+  transform: scale(1.05);
+}
+
+.layer-barcode {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff0f5;
+}
+
+.barcode-title {
+  color: #ff1493;
+  font-size: 28px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.barcode-image {
+  width: 300px;
+  margin: 30px 0;
+  filter: drop-shadow(0 0 10px hotpink);
+}
+
+.barcode-caption {
+  font-style: italic;
+  color: #444;
+}
